@@ -58,9 +58,11 @@ document.querySelector("#mute").addEventListener("click", function() {
 });
 
 document.querySelector("#old").addEventListener("click", function() {
-	document.getElementById("myVideo").setAttribute("class", "oldTime");
+	/* document.getElementById("myVideo").setAttribute("class", "oldTime"); */
+	video.classList.add("oldTime"); 
 });
 
 document.querySelector("#original").addEventListener("click", function() {
-	document.getElementById("myVideo").setAttribute("class", "none");
+	/* document.getElementById("myVideo").setAttribute("class", "none"); */
+	video.classList.remove("oldTime"); 
 });
