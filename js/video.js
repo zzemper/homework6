@@ -19,29 +19,30 @@ document.querySelector("#pause").addEventListener("click", function() {
 
 document.querySelector("#volumeSlider").addEventListener("change", function() {
 	console.log(this);
-	console.log(this.value);
+	console.log(this.value / 100);
 	video.volume = (this.value / 100);
 	let vol= document.querySelector("#volume").innerHTML = (video.volume * 100) + "%";
 });
 
 document.querySelector("#slower").addEventListener("click", function() {
 	video.playbackRate *= 0.9;
-	console.log("Playback Rate: " + video.playbackRate);
+	console.log("New speed is " + video.playbackRate);
 });
 
 document.querySelector("#faster").addEventListener("click", function() {
 	video.playbackRate /= 0.9;
-	console.log("Playback Rate: " + video.playbackRate);
+	console.log("New speed is " + video.playbackRate);
 });
 
 document.querySelector("#skip").addEventListener("click", function() {
-	if (video.currentTime >= video.duration) {
+	if ((video.currentTime + 5) >= video.duration) {
 		video.currentTime = 0;
-		console.log(video.currentTime);
+		console.log("Current location " + video.currentTime);
+		video.play();
 	}
 	else {
 		video.currentTime += 5;
-		console.log(video.currentTime);
+		console.log("Current location " + video.currentTime);
 	}
 });
 
@@ -57,9 +58,9 @@ document.querySelector("#mute").addEventListener("click", function() {
 });
 
 document.querySelector("#old").addEventListener("click", function() {
-	document.getElementById("myVideo").style.filter = "grayscale(100%)";
+	document.getElementById("myVideo").setAttribute("class", "oldTime");
 });
 
 document.querySelector("#original").addEventListener("click", function() {
-	document.getElementById("myVideo").style.filter = "none";
+	document.getElementById("myVideo").setAttribute("class", "none");
 });
